@@ -19,16 +19,16 @@ TOKYO FLIP-FLOP「ホビーRPN電卓」の製品版ファームウェアです�
 
 <img src="https://user-images.githubusercontent.com/23148662/126727764-eae8069f-04e9-472b-8446-dd21ddb3c412.png" width="640">
 
-それぞれの端子が、マイコン（ATmega328P-AU）の下記端子に接続されています。
+それぞれの端子が、マイコン（ATmega328P-AU）の下記端子に接続されています。これを使って、通常のAVRマイコンを書き換える手順でファームアップが可能です。
 
 | 基板側の端子 | マイコン側の端子(ピン番号) |
 | --- | --- |
 | GND | GND |
 | VCC | VCC |
-| RST | PC6 RESET (29) |
-| SCK | PB5 SCK (17) |
-| MISO | PB4 MISO (16) |
-| MOSI | PB3 MOSI (15) |
+| RST | PC6 / RESET (29) |
+| SCK | PB5 / SCK (17) |
+| MISO | PB4 / MISO (16) |
+| MOSI | PB3 / MOSI (15) |
 
 
 ## 書き換え方
@@ -68,7 +68,7 @@ AVRISP mkII（互換機）の場合は、[こちらの方法](https://qiita.com/
 
 <img src="https://user-images.githubusercontent.com/23148662/126731579-48cafdc1-0621-45b2-a781-eab199db0c74.png" width="640">
 
-- ATmegaCore をインストール
+- ATMegaCore (by Kosaka.Lab.) をインストール
 
 <img src="https://user-images.githubusercontent.com/23148662/126731672-0fb9bdba-daea-4385-a8d5-8c0d07d1e4ab.png" width="640">
 
@@ -100,9 +100,11 @@ AVRISP mkII（互換機）の場合は、[こちらの方法](https://qiita.com/
 
 「ボードへの書き込みが完了しました。」と出れば成功です。
 
-## キーマトリクスについて
+## キーマトリクス・OLEDの配線について
 
-ハードウェアに依存するキーマトリクスまわりのコードは、オリジナルのソースコードを流用して開発下さい。key_scan() という関数名です。
+キーマトリクスについては、オリジナルのソースコードを流用することで、ハード構成を気にせずに使うことができます。key_scan() という関数がある箇所です。
+
+OLEDディスプレイについては、SCLがマイコンの28ピン(PC5/SCL)、SDAが27ピン(PC4/SDA)に接続されています。ハードウェアシリアルを使って制御可能です。
 
 ## ユーザー作成ファームウェア
 
