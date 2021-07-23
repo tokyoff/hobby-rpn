@@ -39,7 +39,7 @@ TOKYO FLIP-FLOP「ホビーRPN電卓」の製品版ファームウェアです�
 
 Arduinoユーザの場合、こっちの方がお手軽です。
 
-ホビーRPN電卓ユーザの方が手順を書いてくれていますので、[そちらをご参照ください](https://github.com/sh1ura/hobby-rpn/blob/main/%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF%E6%96%B9.md)。
+ホビーRPN電卓ユーザの方が手順を書いてくれていますので、[そちらをご参照ください](https://github.com/sh1ura/hobby-rpn/blob/main/%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF%E6%96%B9.md)。また検索するとやり方を書いたページがたくさん出てきます。
 
 ### (b) AVRライタを使う方法
 
@@ -55,7 +55,7 @@ Arduinoユーザの場合、こっちの方がお手軽です。
 
 これでパッドを挟み込むことで、お手軽にライタの接続が可能になります。[秋月電子通商](https://akizukidenshi.com/catalog/g/gC-04753/)などで入手可能です。
 
-もちろんパッドにピンヘッダをハンダ付けする方法でも大丈夫です。
+もちろんパッドにピンヘッダをハンダ付けする方法でも大丈夫です。接触不良が起きにくいため、確実にやるならハンダ付けの方がいいです。
 
 #### 2. AVRライタのセットアップ
 
@@ -64,7 +64,12 @@ AVRISP mkII（互換機）の場合は、[こちらの方法](https://qiita.com/
 
 #### 3. Arduino IDEの設定
 
-- Arduino IDE でボードマネージャを開く
+- Arduino IDE の環境設定を開き、「追加のボードマネージャのURL」に以下のURLを設定
+  - https://kimio-kosaka.github.io/ATMegaCore/package_ATMegaCore_index.json
+
+<img src="https://user-images.githubusercontent.com/23148662/126758417-861760fb-9594-41ad-a13c-664eb2cfa198.png" width="640">
+
+- Arduino IDE のボードマネージャを開く
 
 <img src="https://user-images.githubusercontent.com/23148662/126731579-48cafdc1-0621-45b2-a781-eab199db0c74.png" width="640">
 
@@ -86,7 +91,7 @@ AVRISP mkII（互換機）の場合は、[こちらの方法](https://qiita.com/
 
 #### 4. 基板とAVRライタの接続
 
-前述のピン配置を参考に、基板とAVRライタを接続してください。ICテストクリップを使う場合、そのままでは挟む力が弱いため、間に何か挟むか手で押さえるなど工夫が必要です。
+前述のピン配置を参考に、基板とAVRライタを接続してください。ICテストクリップを使う場合、そのままでは挟む力が弱いため、間に何か挟むか手で押さえるなど工夫が必要です（書き込みエラーが出る場合は大半が接触不良です）。
 
 このとき電源はAVRライタから供給されますので、**ホビーRPN電卓のボタン電池は抜いてから**作業して下さい。
 
